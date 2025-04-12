@@ -123,7 +123,7 @@ consistency = 50 + 45 * (1 - CV)
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/CVFit.git
+git clone https://github.com/S1D007/CVFit
 cd CVFit
 ```
 
@@ -148,7 +148,7 @@ python download_model.py
 Start the application with:
 
 ```bash
-python cvfit.py
+python gui/app.py
 ```
 
 ## Usage Guide
@@ -207,14 +207,6 @@ CVFit follows a modular architecture:
 - **Mobile App Version**: Port to mobile platforms for greater accessibility
 - **AI Coaching**: Personalized workout recommendations and form corrections
 - **VR/AR Integration**: Immersive workout experience with virtual environments
-
-## Contributing
-
-We welcome contributions to the CVFit project! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## License
-
-CVFit is released under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## Acknowledgments
 
