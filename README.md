@@ -148,7 +148,7 @@ python download_model.py
 Start the application with:
 
 ```bash
-python gui/app.py
+python cvfit.py
 ```
 
 ## Usage Guide
