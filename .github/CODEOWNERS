@@ -1,0 +1,17 @@
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# they will be requested for review when someone opens a pull request.
+*       @s1d007
+
+# Core module owners
+/core/  @s1d007 @core-team-member
+
+# GUI module owners
+/gui/   @s1d007 @ui-team-member
+
+# Documentation owners
+/docs/  @s1d007 @docs-team-member
+
+# Build scripts
+*.sh    @s1d007 @devops-team-member
+*.ps1   @s1d007 @devops-team-member
