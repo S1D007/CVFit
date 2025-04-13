@@ -119,7 +119,44 @@ consistency = 50 + 45 * (1 - CV)
 - Webcam or built-in camera
 - 4GB RAM minimum (8GB recommended for smoother experience)
 
-### Installation
+### Quick Setup (Recommended)
+
+For hassle-free setup, we provide convenient setup scripts that handle all installation steps automatically:
+
+#### For macOS/Linux:
+```bash
+# Navigate to the CVFit directory
+cd CVFit
+
+# Make the script executable (if needed)
+chmod +x setup.sh
+
+# Run the setup script
+./setup.sh
+```
+
+#### For Windows:
+```powershell
+# Navigate to the CVFit directory
+cd CVFit
+
+# You may need to allow script execution first
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# Run the setup script
+.\setup.ps1
+```
+
+These scripts will:
+1. Check if Python 3.8+ is installed
+2. Create a virtual environment
+3. Install all required dependencies
+4. Download the YOLOv8 pose detection model
+5. Launch the application automatically
+
+### Manual Installation
+
+If you prefer to install manually, follow these steps:
 
 1. Clone the repository:
 ```bash
@@ -143,9 +180,9 @@ pip install -r requirements.txt
 python download_model.py
 ```
 
-### Running the Application
+### Running the Application Manually
 
-Start the application with:
+If you didn't use the setup scripts, start the application with:
 
 ```bash
 python cvfit.py
@@ -153,7 +190,7 @@ python cvfit.py
 
 ## Usage Guide
 
-1. **Launch the application** using the command above
+1. **Launch the application** using one of the methods described above
 2. **Select your camera source** and preferred resolution
 3. **Click "Start Tracking"** to begin your workout session
 4. **Run in place** or on a treadmill while facing the camera
