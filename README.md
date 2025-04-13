@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="resources/icon.png" alt="CVFit Logo" width="200"/>
+</p>
+
 # CVFit: Computer Vision Fitness Tracker
 
 ![CVFit Banner](https://img.shields.io/badge/CVFit-Fitness%20Tracking%20with%20Computer%20Vision-blue?style=for-the-badge&logo=opencv)
@@ -40,6 +44,13 @@ The system evaluates several performance dimensions:
 - Session summaries with key performance metrics
 - Historical data tracking across multiple sessions
 - Visual performance trends through time-series graphs
+
+### 📦 Cross-Platform Support
+
+- **Windows**: Native executable with installer
+- **macOS**: Native .app bundle with DMG installer
+- **Linux**: AppImage and tarball distribution
+- **Automatic releases**: Built and distributed through GitHub Releases
 
 ## Technical Approach
 
@@ -113,17 +124,33 @@ consistency = 50 + 45 * (1 - CV)
 
 ## Installation and Setup
 
-### Prerequisites
+### Direct Download (Easiest)
+
+Download the latest version for your operating system from our [GitHub Releases](https://github.com/S1D007/CVFit/releases) page:
+
+- **Windows**: Download `CVFit-Windows.zip` (or the installer if available)
+- **macOS**: Download `CVFit-macOS.zip` (contains CVFit.app)
+- **Linux**: Download `CVFit-Linux.tar.gz` (or AppImage if available)
+
+#### Installation Notes:
+
+- **Windows**: Extract the ZIP or run the installer. You may need to approve security warnings as the app isn't signed.
+- **macOS**: Extract the ZIP, move CVFit.app to your Applications folder. Right-click → Open for first run to bypass Gatekeeper.
+- **Linux**: Extract the tarball or make the AppImage executable with `chmod +x CVFit-*.AppImage`
+
+### Building from Source
+
+#### Prerequisites
 
 - Python 3.8 or higher
 - Webcam or built-in camera
 - 4GB RAM minimum (8GB recommended for smoother experience)
 
-### Quick Setup (Recommended)
+#### Quick Setup (Recommended)
 
 For hassle-free setup, we provide convenient setup scripts that handle all installation steps automatically:
 
-#### For macOS/Linux:
+##### For macOS/Linux:
 ```bash
 # Navigate to the CVFit directory
 cd CVFit
@@ -135,7 +162,7 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-#### For Windows:
+##### For Windows:
 ```powershell
 # Navigate to the CVFit directory
 cd CVFit
@@ -154,7 +181,7 @@ These scripts will:
 4. Download the YOLOv8 pose detection model
 5. Launch the application automatically
 
-### Manual Installation
+#### Manual Installation
 
 If you prefer to install manually, follow these steps:
 
@@ -180,13 +207,37 @@ pip install -r requirements.txt
 python download_model.py
 ```
 
-### Running the Application Manually
+#### Running the Application Manually
 
 If you didn't use the setup scripts, start the application with:
 
 ```bash
 python cvfit.py
 ```
+
+### Building Executables
+
+You can build standalone executables for your platform:
+
+#### For macOS:
+```bash
+chmod +x build_macos.sh
+./build_macos.sh
+```
+This creates a `CVFit.app` in the `dist` folder and optionally a DMG installer.
+
+#### For Windows:
+```powershell
+.\build_windows.ps1
+```
+This creates executables in the `dist\CVFit` folder and optionally a setup.exe installer.
+
+#### For Linux:
+```bash
+chmod +x build_linux.sh
+./build_linux.sh
+```
+This creates executables in the `dist/CVFit` folder and optionally an AppImage.
 
 ## Usage Guide
 
@@ -218,6 +269,12 @@ CVFit follows a modular architecture:
   - `pose_utils.py`: Mathematical utilities for pose processing
   - `video_capture.py`: Thread-safe video capture
 
+- **Build System**: Cross-platform executable generation
+  - `build_macos.sh`: macOS app bundle and DMG creation
+  - `build_windows.ps1`: Windows executable and installer creation 
+  - `build_linux.sh`: Linux binary and AppImage creation
+  - GitHub Actions workflows for automated releases
+
 ## Limitations and Constraints
 
 - **Camera Angle**: Requires a clear front view for accurate tracking
@@ -226,6 +283,25 @@ CVFit follows a modular architecture:
 - **Calibration**: Speed calculations are approximate and may require individual calibration
 - **Privacy**: While focusing on hands only, still requires camera access
 - **Processing Power**: May affect performance on low-end systems
+
+## Contributing and Development
+
+### Creating GitHub Releases
+
+CVFit uses GitHub Actions to automatically build executables for all platforms when a new release is created:
+
+1. Tag your release: `git tag v1.0.0 && git push --tags`
+2. Create a release on GitHub using the tag
+3. GitHub Actions will automatically build Windows, macOS, and Linux executables
+4. The executables will be attached to the release for easy download
+
+### Development Workflow
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/my-feature`
+3. Make your changes
+4. Run tests: `pytest`
+5. Submit a pull request
 
 ## Future Improvements
 
@@ -257,4 +333,11 @@ CVFit follows a modular architecture:
   <img src="https://img.shields.io/badge/Built%20with-Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Built with Python">
   <img src="https://img.shields.io/badge/Powered%20by-OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white" alt="Powered by OpenCV">
   <img src="https://img.shields.io/badge/Uses-YOLOv8-00FFFF?style=flat-square&logo=pytorch&logoColor=white" alt="Uses YOLOv8">
+  <img src="https://img.shields.io/badge/Available%20on-GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="Available on GitHub">
+</p>
+
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows"></a>
+  <a href="#"><img src="https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white" alt="macOS"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux"></a>
 </p>
