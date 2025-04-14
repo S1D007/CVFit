@@ -10,13 +10,13 @@ def download_movenet():
 
     print("Downloading MoveNet model from TensorFlow Hub...")
     model = hub.load('https://tfhub.dev/google/movenet/singlepose/lightning/4')
-    
+
     # Get the concrete function
     concrete_func = model.signatures['serving_default']
     frozen_func = tf.function(lambda x: concrete_func(x))
     frozen_func = frozen_func.get_concrete_function(
         tf.TensorSpec(shape=[1, 192, 192, 3], dtype=tf.int32))
-    
+
     # Convert to TFLite
     converter = tf.lite.TFLiteConverter.from_concrete_functions([frozen_func])
     converter.target_spec.supported_ops = [
@@ -24,12 +24,12 @@ def download_movenet():
         tf.lite.OpsSet.SELECT_TF_OPS
     ]
     tflite_model = converter.convert()
-    
+
     # Save the model
     model_path = os.path.join(model_dir, 'movenet_lightning.tflite')
     with open(model_path, 'wb') as f:
         f.write(tflite_model)
-    
+
     print(f"Model saved to {model_path}")
 
 if __name__ == '__main__':
